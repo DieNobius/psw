@@ -1,0 +1,31 @@
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid white;
+  background: rgba(31, 42, 99, 1);
+}
+.menu {
+  margin-top: 40px;
+  margin-bottom: 35px;
+}
+
+.menu__link {
+  color: rgba(255, 255, 255, 1);
+  font-size: 16px;
+}
+.menu__home {
+  margin-right: 75px;
+}
+.menu__characters {
+  margin-right: 160px;
+}
+
+.ul__list {
+  display: flex;
+}
+
+.logo {
+  margin-top: 1px;
+  margin-bottom: 2px;
+  margin-left: 157px;
+}
