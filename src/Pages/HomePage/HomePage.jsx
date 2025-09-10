@@ -9,8 +9,7 @@ function HomePage() {
 	return (
 		<div className="home__page">
 			<Header />
-			<div>Home Page</div>
-			{/* <div className="home">
+			<div className="home">
 				<div className="home__left">
 					<div className="home__text-top">
 						<p>
@@ -33,7 +32,7 @@ function HomePage() {
 					<img className="img__cload-left" src={cload} alt="" />
 					<img className="img__yoda-ellipse" src={ellipse} alt="" />
 				</div>
-			</div> */}
+			</div>
 		</div>
 	)
 }
