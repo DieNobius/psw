@@ -5,7 +5,7 @@ import yoda from '../../img/yoda.webp'
 import cload from '../../img/cload.svg'
 import ellipse from '../../img/ellipse.svg'
 
-function HomePages() {
+function HomePage() {
 	return (
 		<div className="home__page">
 			<Header />
@@ -38,4 +38,4 @@ function HomePages() {
 	)
 }
 
-export default HomePages
+export default HomePage
