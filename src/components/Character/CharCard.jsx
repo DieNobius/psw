@@ -1,4 +1,4 @@
-function Post({
+function CharCard({
 	name,
 	gender,
 	height,
@@ -20,4 +20,4 @@ function Post({
 	)
 }
 
-export default Post
+export default CharCard

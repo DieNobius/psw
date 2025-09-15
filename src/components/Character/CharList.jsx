@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 import { getCharacterList } from '../../services/getCharacterList'
-import Post from '../Post/Post'
+import CharCard from './CharCard'
 
-function Posts() {
+function CharList() {
 	const [posts, setPosts] = useState([])
+
 	useEffect(() => {
-		const asyncFetch = async () => {
+		const asyncFetchCharactreList = async () => {
 			try {
 				const result = await getCharacterList().then((res) => res.json())
 				setPosts(result)
@@ -13,17 +14,16 @@ function Posts() {
 				console.log(error)
 			}
 		}
-		asyncFetch()
+		asyncFetchCharactreList()
 	}, [])
-	console.log(posts)
 
 	return (
 		<div>
 			{posts.map((post, index) => (
-				<Post key={index} {...post} />
+				<CharCard key={index} {...post} />
 			))}
 		</div>
 	)
 }
 
-export default Posts
+export default CharList
