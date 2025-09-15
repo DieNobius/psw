@@ -1,10 +1,11 @@
 import Header from './../../components/Header/Header'
+import Post from '../../components/Posts/Posts'
 
 function CharactersPage() {
 	return (
 		<div>
 			<Header />
-			<h1>Characters Page</h1>
+			<Post />
 		</div>
 	)
 }
