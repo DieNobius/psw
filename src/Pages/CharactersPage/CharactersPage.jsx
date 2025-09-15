@@ -1,10 +1,11 @@
+import CharList from '../../components/Character/CharList/CharList'
 import Header from './../../components/Header/Header'
 
 function CharactersPage() {
 	return (
 		<div>
 			<Header />
-			<h1>Characters Page</h1>
+			<CharList />
 		</div>
 	)
 }
