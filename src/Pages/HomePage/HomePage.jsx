@@ -1,4 +1,3 @@
-import Header from '../../components/Header/Header'
 import Button from '../../components/Button/Button'
 import './HomePage.css'
 import yoda from '../../img/yoda.webp'
@@ -8,7 +7,6 @@ import ellipse from '../../img/ellipse.svg'
 function HomePage() {
 	return (
 		<div className="home__page">
-			<Header />
 			<div className="home">
 				<div className="home__left">
 					<div className="home__text-top">
