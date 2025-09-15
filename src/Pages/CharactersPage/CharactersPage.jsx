@@ -1,4 +1,4 @@
-import CharList from '../../components/Character/CharList'
+import CharList from '../../components/Character/CharList/CharList'
 import Header from './../../components/Header/Header'
 
 function CharactersPage() {

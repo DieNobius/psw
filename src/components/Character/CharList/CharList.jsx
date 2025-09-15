@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { getCharacterList } from '../../services/getCharacterList'
-import CharCard from './CharCard'
+import { getCharacterList } from '../../../services/getCharacterList'
+import CharCard from './CharCard/CharCard'
 
 function CharList() {
 	const [posts, setPosts] = useState([])
