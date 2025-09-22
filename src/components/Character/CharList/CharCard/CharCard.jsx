@@ -1,30 +1,7 @@
 import { useMemo } from 'react'
 import './CharCard.css'
-
-const processValue = (value) => {
-	switch (value) {
-		case 'unknown':
-		case 'n/a':
-			return null
-		default:
-			return value
-	}
-}
-
-const getGenderClass = (gender) => {
-	if (!gender) return 'unknown'
-
-	switch (gender) {
-		case 'male':
-			return 'male'
-		case 'female':
-			return 'female'
-		case 'hermaphrodite':
-			return 'hermaphrodite'
-		default:
-			return 'unknown'
-	}
-}
+import { processValue } from '../../../../helper/processValue'
+import { getGenderClass } from '../../../../helper/getGenderClass'
 
 function CharCard(props) {
 	const charData = useMemo(() => {
