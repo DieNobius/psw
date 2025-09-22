@@ -1,0 +1,11 @@
+.posts__container {
+  display: flex;
+  justify-content: center;
+}
+
+.posts__inner {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: auto;
+}
