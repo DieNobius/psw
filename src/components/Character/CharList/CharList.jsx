@@ -1,27 +1,14 @@
-import { useState, useEffect } from 'react'
-import { getCharacterList } from '../../../services/getCharacterList'
 import CharCard from './CharCard/CharCard'
+import './CharList.css'
 
-function CharList() {
-	const [posts, setPosts] = useState([])
-
-	useEffect(() => {
-		const asyncFetchCharactreList = async () => {
-			try {
-				const result = await getCharacterList().then((res) => res.json())
-				setPosts(result)
-			} catch (error) {
-				console.log(error)
-			}
-		}
-		asyncFetchCharactreList()
-	}, [])
-
+function CharList({ characters }) {
 	return (
-		<div>
-			{posts.map((post, index) => (
-				<CharCard key={index} {...post} />
-			))}
+		<div className="posts__container">
+			<div className="posts__inner">
+				{characters.map((post, index) => (
+					<CharCard key={index} {...post} />
+				))}
+			</div>
 		</div>
 	)
 }
