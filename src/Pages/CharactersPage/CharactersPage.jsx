@@ -3,7 +3,6 @@ import { getCharacterList } from '../../services/getCharacterList'
 import CharLength from '../../components/Character/CharLength/CharLength'
 import CharList from '../../components/Character/CharList/CharList'
 import ColorEye from '../../components/ColorEye/ColorEye'
-import Language from '../../components/Language/Language'
 import './CharactersPage.css'
 
 function CharactersPage() {
@@ -22,13 +21,10 @@ function CharactersPage() {
 	}, [])
 
 	return (
-		<div>
-			<Language />
-			<div className="char__inner">
-				<CharLength length={posts.length} />
-				<ColorEye />
-				<CharList characters={posts} />
-			</div>
+		<div className="char__inner">
+			<CharLength length={posts.length} />
+			<ColorEye />
+			<CharList characters={posts} />
 		</div>
 	)
 }

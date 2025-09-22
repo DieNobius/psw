@@ -1,43 +1,66 @@
-// import CharTable from '../../CharTable/CharTable'
+import { useMemo } from 'react'
 import './CharCard.css'
 
-// {name === 'n/a' ? null :
+const processValue = (value) => {
+	switch (value) {
+		case 'unknown':
+		case 'n/a':
+			return null
+		default:
+			return value
+	}
+}
 
-function CharCard({ name, gender, height, mass, birth_year }) {
-	const genderClass =
-		gender === 'male'
-			? 'male'
-			: gender === 'female'
-			? 'female'
-			: gender === 'hermaphrodite'
-			? 'hermaphrodite'
-			: 'unknown'
+const getGenderClass = (gender) => {
+	if (!gender) return 'unknown'
+
+	switch (gender) {
+		case 'male':
+			return 'male'
+		case 'female':
+			return 'female'
+		case 'hermaphrodite':
+			return 'hermaphrodite'
+		default:
+			return 'unknown'
+	}
+}
+
+function CharCard(props) {
+	const charData = useMemo(() => {
+		const processed = {}
+		Object.entries(props).forEach(([key, value]) => {
+			processed[key] = processValue(value)
+		})
+		return processed
+	}, [props])
+
+	const genderClass = getGenderClass(charData.gender)
 
 	return (
 		<div className="char__container">
-			<h3 className="char__name ">{name}</h3>
+			<h3 className="char__name">{charData.name || 'Unknown Character'}</h3>
+
 			<div className="char__number__inner">
-				{height === 'unknown' ? null : (
-					<p className="char__common__number">{height}</p>
+				{charData.height && (
+					<p className="char__common__number">{charData.height}</p>
 				)}
-				{mass === 'unknown' ? null : (
-					<p className="char__common__number">{mass}</p>
+				{charData.mass && (
+					<p className="char__common__number">{charData.mass}</p>
 				)}
 			</div>
+
 			<div className="char__string__inner">
-				{height === 'unknown' ? null : (
-					<p className="char__common__string">height</p>
-				)}
-				{mass === 'unknown' ? null : (
-					<p className="char__common__string">mass</p>
-				)}
+				{charData.height && <p className="char__common__string">height</p>}
+				{charData.mass && <p className="char__common__string">mass</p>}
 			</div>
+
 			<div className="char__info__inner">
-				{gender === 'n/a' ? null : (
-					<p className={`char__gender ${genderClass}`}>{gender}</p>
+				{charData.gender && (
+					<p className={`char__gender ${genderClass}`}>{charData.gender}</p>
 				)}
-				{birth_year === 'unknown' ? null : (
-					<p className="char__year">{birth_year}</p>
+				{charData.birth_year && (
+					<p className="char__year">{charData.birth_year}</p>
 				)}
 			</div>
 		</div>
