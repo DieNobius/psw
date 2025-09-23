@@ -1,10 +1,10 @@
-import Button from '../../components/Button/Button'
+import HomePageButton from '../../components/Buttons/HomePageButton/HomePageButton'
 
 function NotFound() {
 	return (
 		<div>
 			<h1>Not Found</h1>
-			<Button />
+			<HomePageButton />
 		</div>
 	)
 }

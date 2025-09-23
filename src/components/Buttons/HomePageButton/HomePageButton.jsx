@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import './Button.css'
+import './HomePageButton.css'
 
-function Button() {
+function HomePageButton() {
 	return (
 		<Link to="/characters">
 			<button className="btn">See more...</button>
@@ -9,4 +9,4 @@ function Button() {
 	)
 }
 
-export default Button
+export default HomePageButton
