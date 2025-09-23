@@ -3,12 +3,13 @@ import { getCharacterList } from '../../services/getCharacterList'
 import CharLength from '../../components/Character/CharLength/CharLength'
 import CharList from '../../components/Character/CharList/CharList'
 import Filter from '../../components/Filter/Filter'
+import { charactersPerPage } from '../../constants/constants'
 import './CharactersPage.css'
+import Pagination from '../../components/Pagination/Pagination'
 
 function CharactersPage() {
 	const [allCharacters, setAllCharacters] = useState([])
 	const [currentPage, setCurrentPage] = useState(1)
-	const [charactersPerPage, setCharactersPerPage] = useState(9)
 
 	const indexOfLastCharacter = currentPage * charactersPerPage
 	const indexOfFirstCharacter = indexOfLastCharacter - charactersPerPage
@@ -39,25 +40,12 @@ function CharactersPage() {
 			<CharLength length={allCharacters.length} />
 			<Filter />
 			<CharList characters={currentCharacters} />
-			<div className="pagination">
-				<button
-					className="pagination__btn"
-					onClick={prevPage}
-					disabled={currentPage === 1}
-				>
-					Назад
-				</button>
-				<span className="pagination__info">
-					Страница {currentPage} из {totalPages}
-				</span>
-				<button
-					className="pagination__btn"
-					onClick={nextPage}
-					disabled={currentPage === totalPages}
-				>
-					Вперед
-				</button>
-			</div>
+			<Pagination
+				prevPage={prevPage}
+				nextPage={nextPage}
+				currentPage={currentPage}
+				totalPages={totalPages}
+			/>
 		</div>
 	)
 }

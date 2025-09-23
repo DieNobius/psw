@@ -1,4 +1,4 @@
-import Button from '../../components/Button/Button'
+import HomePageButton from '../../components/Buttons/HomePageButton/HomePageButton'
 import './HomePage.css'
 import yoda from '../../img/yoda.webp'
 import cload from '../../img/cload.svg'
@@ -20,7 +20,7 @@ function HomePage() {
 							You can find out all the information about your favorite character
 						</p>
 					</div>
-					<Button />
+					<HomePageButton />
 				</div>
 				<div className="home__right">
 					<div className="container__yoda">
