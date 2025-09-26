@@ -1,3 +1,31 @@
-.eye {
-  margin-bottom: 30px;
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.filter__label {
+  font-weight: bold;
+  color: #333;
+  min-width: 80px;
+}
+
+.filter__select {
+  padding: 8px 12px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.filter__select:hover {
+  border-color: #007bff;
+}
+
+.filter__select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
