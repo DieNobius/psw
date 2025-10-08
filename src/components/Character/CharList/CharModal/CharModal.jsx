@@ -3,25 +3,25 @@ import herm from '../../../../img/hermaphrodite.svg'
 
 function CharModal(props) {
 	return (
-		<div className="container-test">
-			<div className="test">
-				<div className="test-2">
-					<div className="test-3">
-						<img className="img" src={herm} alt="" />
-						<div className="cont">
-							<div className="male-test">male</div>
-							<div className="model">model</div>
+		<div className="char-modal">
+			<div className="modal-overlay">
+				<div className="modal-content">
+					<div className="character-image-section">
+						<img className="character-image" src={herm} alt="Character" />
+						<div className="character-badges">
+							<div className="gender-badge">male</div>
+							<div className="type-badge">model</div>
 						</div>
 					</div>
-					<div className="test-4">
-						<p className="name-test">name</p>
-						<div className="test-5">
+					<div className="character-info-section">
+						<p className="character-name">name</p>
+						<div className="character-description">
 							hair color:<br></br>
 							skin color:
 						</div>
-						<div className="test-6-cont">
-							<div className="test-7">height</div>
-							<div className="test-8">mass</div>
+						<div className="character-stats">
+							<div className="stat-item">height</div>
+							<div className="stat-item">mass</div>
 						</div>
 					</div>
 				</div>
