@@ -16,7 +16,7 @@ function CharModal({ character, onClose }) {
 			case 'hermaphrodite':
 				return hermImage
 			default:
-				return maleImage
+				return hermImage
 		}
 	}
 
