@@ -6,6 +6,7 @@ import Filter from '../../components/Filter/Filter'
 import { charactersPerPage } from '../../constants/constants'
 import './CharactersPage.css'
 import Pagination from '../../components/Pagination/Pagination'
+import CharModal from '../../components/Character/CharList/CharModal/CharModal'
 
 function CharactersPage() {
 	const [allCharacters, setAllCharacters] = useState([])
@@ -49,20 +50,22 @@ function CharactersPage() {
 	}, [])
 
 	return (
-		<div className="char__inner">
-			<CharLength length={filteredCharacters.length} />
-			<Filter
-				eyeColorFilter={eyeColorFilter}
-				handleEyeColorChange={handleEyeColorChange}
-			/>
-			<CharList characters={currentCharacters} />
-			<Pagination
-				prevPage={prevPage}
-				nextPage={nextPage}
-				currentPage={currentPage}
-				totalPages={totalPages}
-			/>
-		</div>
+		<>
+			<div className="char__inner">
+				<CharLength length={filteredCharacters.length} />
+				<Filter
+					eyeColorFilter={eyeColorFilter}
+					handleEyeColorChange={handleEyeColorChange}
+				/>
+				<CharList characters={currentCharacters} />
+				<Pagination
+					prevPage={prevPage}
+					nextPage={nextPage}
+					currentPage={currentPage}
+					totalPages={totalPages}
+				/>
+			</div>
+		</>
 	)
 }
 

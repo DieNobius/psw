@@ -5,7 +5,7 @@
 }
 
 .modal-overlay {
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,16 +20,6 @@
   background: linear-gradient(180deg, rgba(23, 0, 47, 1) 42%, rgba(31.000001907348633, 42, 99.00000762939453, 1) 100%);
   width: 800px;
   height: 370px;
-}
-
-.modal-content::before {
-  position: absolute;
-  font-size: 30px;
-  display: inline-block;
-  content: "✕";
-  color: red;
-  margin-left: 42%;
-  margin-top: -3%;
 }
 
 .character-image-section {
