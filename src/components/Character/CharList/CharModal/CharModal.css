@@ -6,15 +6,34 @@
 
 .modal-overlay {
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100%;
-  min-width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-button {
+  position: absolute;
+  top: -40px;
+  right: -15px;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
 }
 
 .modal-content {
+  position: relative;
   display: flex;
   border-radius: 16px;
   background: linear-gradient(180deg, rgba(23, 0, 47, 1) 42%, rgba(31.000001907348633, 42, 99.00000762939453, 1) 100%);
@@ -36,7 +55,10 @@
 
 .character-badges {
   display: flex;
+  justify-content: end;
   transform: translateX(60%) translateY(-140%);
+  max-width: 200px;
+  padding-right: 20px;
 }
 
 .gender-badge {
@@ -49,6 +71,8 @@
 }
 
 .character-name {
+  font-size: 40px;
+  font-weight: bold;
   color: white;
   margin-top: 35px;
   margin-left: 15px;
@@ -66,6 +90,7 @@
 }
 
 .character-stats {
+  align-items: center;
   margin-left: 15px;
   display: flex;
 }
@@ -83,4 +108,21 @@
 
 .stat-item:not(:last-child) {
   margin-right: 25px;
+}
+
+.stat-item-container {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+}
+
+.char__common__number-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  border: 3px solid rgba(33, 33, 33, 1);
+  border-radius: 50%;
 }

@@ -4,18 +4,22 @@ import { processValue } from '../../../../helper/processValue'
 import { getGenderClass } from '../../../../helper/getGenderClass'
 
 function CharCard(props) {
+	const { onCharacterClick, ...characterData } = props
 	const charData = useMemo(() => {
 		const processed = {}
-		Object.entries(props).forEach(([key, value]) => {
+		Object.entries(characterData).forEach(([key, value]) => {
 			processed[key] = processValue(value)
 		})
 		return processed
-	}, [props])
+	}, [characterData])
 
 	const genderClass = getGenderClass(charData.gender)
 
 	return (
-		<div className="char__container">
+		<div
+			onClick={() => onCharacterClick(characterData)}
+			className="char__container"
+		>
 			<h3 className="char__name">{charData.name || 'Unknown Character'}</h3>
 
 			<div className="char__number__inner">
