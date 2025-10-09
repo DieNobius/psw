@@ -1,6 +1,6 @@
-import hermImage from '../../../../img/hermaphrodite.svg'
-import femaleImage from '../../../../img/female.svg'
-import maleImage from '../../../../img/male.svg'
+import hermImg from '../../../../img/hermaphrodite.svg'
+import femaleImg from '../../../../img/female.svg'
+import maleImg from '../../../../img/male.svg'
 import { processValue } from '../../../../helper/processValue'
 import { getGenderClass } from '../../../../helper/getGenderClass'
 import './CharModal.css'
@@ -10,13 +10,13 @@ function CharModal({ character, onClose }) {
 	const getCharacerImage = (gender) => {
 		switch (gender) {
 			case 'male':
-				return maleImage
+				return maleImg
 			case 'female':
-				return femaleImage
+				return femaleImg
 			case 'hermaphrodite':
-				return hermImage
+				return hermImg
 			default:
-				return hermImage
+				return hermImg
 		}
 	}
 
@@ -62,25 +62,28 @@ function CharModal({ character, onClose }) {
 							{charData.skin_color && `skin color: ${charData.skin_color}`}
 						</div>
 						<div className="character-stats">
-							<div className="stat-item">
-								<div className="stat-item-container">
-									<div className="char__common__number-modal">
-										<div className="stat-item-log">{charData.height}</div>
+							{charData.height && (
+								<div className="stat-item">
+									<div className="stat-item-container">
+										<div className="char__common__number-modal">
+											<div className="stat-item-log">{charData.height}</div>
+										</div>
+
+										<div className="stat-item-name">height</div>
 									</div>
-
-									<div className="stat-item-name">height</div>
 								</div>
-							</div>
+							)}
+							{charData.mass && (
+								<div className="stat-item">
+									<div className="stat-item-containers">
+										<div className="char__common__number-modal">
+											<div className="stat-item-log">{charData.mass}</div>
+										</div>
 
-							<div className="stat-item">
-								<div className="stat-item-containers">
-									<div className="char__common__number-modal">
-										<div className="stat-item-log">{charData.mass}</div>
+										<div className="stat-item-name">mass</div>
 									</div>
-
-									<div className="stat-item-name">mass</div>
 								</div>
-							</div>
+							)}
 						</div>
 					</div>
 				</div>
