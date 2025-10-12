@@ -16,6 +16,10 @@ ol[class] {
   padding: 0;
 }
 
+body {
+  overflow: hidden;
+}
+
 body,
 h1,
 h2,
