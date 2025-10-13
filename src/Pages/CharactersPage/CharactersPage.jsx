@@ -7,6 +7,7 @@ import { charactersPerPage } from '../../constants/constants'
 import './CharactersPage.css'
 import Pagination from '../../components/Pagination/Pagination'
 import CharModal from '../../components/Character/CharList/CharModal/CharModal'
+import { processValue } from './../../helper/processValue'
 
 function CharactersPage() {
 	const [allCharacters, setAllCharacters] = useState([])
@@ -49,7 +50,16 @@ function CharactersPage() {
 	useEffect(() => {
 		const asyncFetchCharactreList = async () => {
 			try {
-				const result = await getCharacterList().then((res) => res.json())
+				const response = await getCharacterList()
+				const data = await response.json()
+				const result = data.map((character) => {
+					const processedCharacter = {}
+					Object.entries(character).forEach(([key, value]) => {
+						processedCharacter[key] = processValue(value)
+					})
+					return processedCharacter
+				})
+
 				setAllCharacters(result)
 			} catch (error) {
 				console.log(error)
