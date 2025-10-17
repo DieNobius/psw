@@ -1,0 +1,16 @@
+.numb {
+  font-size: 80vh;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(23, 0, 47, 1);
+  height: 100vh;
+}
+
+.notFoundImg {
+  position: absolute;
+}
