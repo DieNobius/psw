@@ -8,12 +8,19 @@ import './CharactersPage.css'
 import Pagination from '../../components/Pagination/Pagination'
 import CharModal from '../../components/Character/CharList/CharModal/CharModal'
 import { processValue } from './../../helper/processValue'
+import Search from '../../components/Search/Search'
 
 function CharactersPage() {
 	const [allCharacters, setAllCharacters] = useState([])
 	const [currentPage, setCurrentPage] = useState(1)
 	const [eyeColorFilter, setEyeColorFilter] = useState('all')
 	const [selectedCharacter, setSelectedCharacter] = useState(null)
+	const [searchQuery, setSearchQuery] = useState('')
+
+	const handleSearchChange = (query) => {
+		setSearchQuery(query)
+		setCurrentPage(1)
+	}
 
 	const openModal = (character) => {
 		setSelectedCharacter(character)
@@ -28,12 +35,14 @@ function CharactersPage() {
 		setCurrentPage(1)
 	}
 
-	const filteredCharacters =
-		eyeColorFilter === 'all'
-			? allCharacters
-			: allCharacters.filter(
-					(character) => character.eye_color === eyeColorFilter
-			  )
+	const filteredCharacters = allCharacters.filter((character) => {
+		const matchesEyeColor =
+			eyeColorFilter === 'all' || character.eye_color === eyeColorFilter
+		const matchesSearch = character.name
+			.toLowerCase()
+			.includes(searchQuery.toLowerCase())
+		return matchesEyeColor && matchesSearch
+	})
 
 	const indexOfLastCharacter = currentPage * charactersPerPage
 	const indexOfFirstCharacter = indexOfLastCharacter - charactersPerPage
@@ -79,6 +88,7 @@ function CharactersPage() {
 					eyeColorFilter={eyeColorFilter}
 					handleEyeColorChange={handleEyeColorChange}
 				/>
+				<Search value={searchQuery} onChange={handleSearchChange} />
 				<CharList characters={currentCharacters} onCharacterClick={openModal} />
 				<Pagination
 					prevPage={prevPage}
